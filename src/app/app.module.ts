@@ -1,14 +1,41 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule }    from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
+import { HeroesComponent } from './heroes/heroes.component';
+
+import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import {  MessagesComponent } from './messages/messages.component';
+import { AppRountingModule } from './app-rounting.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
+import { HttpClientInMemoryWebApiModule, InMemoryDbService} from 'angular-in-memory-web-api';
+import { HeroSearchComponent } from './hero-search/hero-search.component';
+import { InMemoryDataService } from 'src/app/in-memory-data.service';
+import { TesterComponent } from './tester/tester.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeroesComponent,
+    HeroDetailComponent,
+    DashboardComponent,
+    HeroSearchComponent,
+    MessagesComponent,
+    TesterComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule ,
+    FormsModule,
+    AppRountingModule,
+    BrowserAnimationsModule,
+    HttpModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot( InMemoryDataService , { dataEncapsulation: false })
   ],
   providers: [],
   bootstrap: [AppComponent]
