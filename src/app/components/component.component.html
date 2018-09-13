@@ -1,0 +1,5 @@
+<div>
+  <button (click)="onClickCount()">Parent Button {{ count }}</button>
+</div>
+<app-component1 (changed)="onChangedCount1($event)" [count]="count" style="display:inline-block; width:45%;" ></app-component1>
+<app-component2 [countv2]="count" style="display:inline-block; width:45%; background:white;"></app-component2>

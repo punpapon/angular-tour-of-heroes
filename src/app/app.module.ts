@@ -17,6 +17,12 @@ import { HttpClientInMemoryWebApiModule, InMemoryDbService} from 'angular-in-mem
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { InMemoryDataService } from 'src/app/in-memory-data.service';
 import { TesterComponent } from './tester/tester.component';
+import { VoterComponent } from './voter/voter.component';
+import { Component1Component } from './components/component1/component1.component';
+import { Component2Component } from './components/component2/component2.component';
+import { ComponentComponent } from './components/component.component';
+
+import { MessageService } from './message.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +32,11 @@ import { TesterComponent } from './tester/tester.component';
     DashboardComponent,
     HeroSearchComponent,
     MessagesComponent,
-    TesterComponent
+    TesterComponent,
+    VoterComponent,
+    Component1Component,
+    Component2Component,
+    ComponentComponent
   ],
   imports: [
     BrowserModule ,
@@ -37,7 +47,7 @@ import { TesterComponent } from './tester/tester.component';
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot( InMemoryDataService , { dataEncapsulation: false })
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,7 +4,7 @@
 <div>
   <button (click)="dec()" title="smaller">-</button>
   <button (click)="inc()" title="bigger">+</button>
-  <label [style.font-size.px]="size">FontSize: {{size}}px</label>
+  <label [style.font-size.px]="num">FontSize: {{size}}px</label>
 </div>
 
 <button (click)="onSave()">Save</button>
@@ -36,5 +36,43 @@
   <li>Name : {{data.name}} Address: {{data.address.city}}</li>
 </ul>
 
+<input [(ngModel)] = "username" value="{{num}}">
+<p>Hello {{ username }}</p>
 
+<li *ngFor="let mon of months">
+  {{ mon }}
+</li>
+
+<li *ngFor="let hero of heroes">
+  {{ hero.id }}  {{ hero.name }}
+</li>
+
+<p *ngIf="heroes.length > 2 ">COUNT 2</p>
+
+<p>The sum of 1 + 1 is {{1 + 1}}</p>
+
+<span [hidden]="isUnchanged">changed</span>
+
+<button *ngFor="let hero of heroes" (click)="deleteHero(hero)">{{hero.name}}</button>
+
+<!-- <app-hero-detail [hero]="currentHero"></app-hero-detail> -->
+<app-hero-detail hero="currentHero"></app-hero-detail>
+
+<button [style.font-size.em]="isSpecial ? 3 : 1" >Big</button>
+<button [style.font-size.%]="!isSpecial ? 150 : 50" >Small</button>
+
+<input [value]="currentHero.name"
+       (input)="currentHero.name=$event.target.value" >
+
+<br>
+<input type="text" [(ngModel)] = "myMsg" placeholder="Enter message">
+<p>Your message Will be show here : <span style="color:red;"> {{ myMsg }} </span></p>
+<button (click)="onClickReset()"> Reset</button> <br>
+
+<input #input1 type="text" (keyup)="onKeyUpVerify(input1.value)" placeholder="Enter name"> <br> 
+
+<h2>Is Your wife napping</h2>
+<h3>Yes: {{ agree }}, No: {{ disagree }}</h3>
+
+<app-voter *ngFor="let voter of voters" (onVoted)="onVoted($event)" [name]="voter"></app-voter>
 
